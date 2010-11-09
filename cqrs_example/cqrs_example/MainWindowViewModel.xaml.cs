@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using cqrs_example.Messages;
 
 namespace cqrs_example
 {
@@ -17,7 +18,7 @@ namespace cqrs_example
     {
         public void Execute(object parameter)
         {
-
+            CurrentBus.GetCurrent().Publish<RecordAdded>();
         }
 
         public bool CanExecute(object parameter)
